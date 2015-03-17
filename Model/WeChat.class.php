@@ -3,8 +3,7 @@ class WeChat extends Model{
 	var $apiUrl		 	 = 'https://api.weixin.qq.com/cgi-bin/';
 	var $weChatToken 	 = '';
 	var $weChatTokenTime = 0;
-	
-	
+
 	/*
 	* 添加菜单
 	* 注意事项：
