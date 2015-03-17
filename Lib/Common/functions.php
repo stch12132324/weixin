@@ -375,6 +375,7 @@ function checkMobile() {
 		return false;
 	}
 }
+
 function checkSubstrs($list,$str){
 	$flag = false;
 	for($i=0;$i<count($list);$i++){
@@ -384,5 +385,17 @@ function checkSubstrs($list,$str){
 		}
 	}
 	return $flag;
+}
+
+function array_iconv($string = array() ,$inchar = '' , $outchar = ''){
+	$new_array = array();
+	if(is_array($string)){
+		foreach($string as $key=>$arr){
+			$new_array[$key] = array_iconv($arr , $inchar , $outchar);
+		}
+	}else{
+		return iconv($inchar , $outchar.'//TRANSLIT//IGNORE' , $string );
+	}
+	return $new_array;
 }
 ?>

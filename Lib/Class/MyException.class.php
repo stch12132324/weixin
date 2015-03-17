@@ -1,14 +1,29 @@
 <?php
 class MyException extends Exception{
-    public function __construct($error = ''){
+    public function __construct($error = '' , $type = 'common'){
         parent::__construct();
-        $this->processError($error);
+		switch($type){	
+			case 'common':
+				$this->commonError($error);
+			break;
+			case 'weChat':
+				$this->weChatError($error);
+			break;
+		}
     }
+	
     /*
-     * 自定义异常处理累
+     * common 异常
      */
-    public function processError($error = ''){
+    public function commonError($error = ''){
         echo $error;
     }
+	
+	/*
+	* weChat 部分异常
+ 	*/
+	public function weChatError($error = ''){
+		echo '微信接口异常，异常代码：'.$error;	
+	}
 }
 ?>

@@ -12,6 +12,10 @@ define('DB_CHARSET', 'gbk'); 		//	数据库字符集
 define('DB_PCONNECT','0'); 			//	0 或1，是否使用持久连接
 define('DB_SHOW_ERROR',1); 			//  是否显示数据库错误
 
+//微信接口
+define('TOKEN', 'D1GIbjpYVKp3g28Id5SmDqRmEGUzNgjh');
+define('WECHAT_APPID', 'wx0533b72549f278b3');
+define('WECHAT_APPSECRET' , 'b0754ca5b77118a18b290d3cdfb00e35');
 //路径设置
 define('CACHE_PATH', BJ_ROOT.'date/cache/'); //缓存默认存储路径
 define('ADS_PATH',BJ_ROOT.'Static/ads/');
