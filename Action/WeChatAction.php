@@ -104,7 +104,9 @@ class WeChatAction extends IndexBaseAction{
 	
 	// 获取用户基本信息
 	public function getUserInfo(){
-		
+		$openid = 'o3zqZjlbrMQW46x7d6WC-7GaiGCk';
+		$userInfo = $this->weChat->getUserInfo($openid);
+		print_r($userInfo);
 	}
 }
 ?>

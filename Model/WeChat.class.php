@@ -283,12 +283,19 @@ class WeChat extends Model{
 	
 	//----------------------------- 用户列表 --------------------------------------------------
 	public function getAllUser(){
-		$viewApiUrl = $this->apiUrl.'user/get?access_token='.$this->weChatToken.'&&next_openid=';
+		$viewApiUrl = $this->apiUrl.'user/get?access_token='.$this->weChatToken.'&next_openid=';
 		$user		= file_get_contents($viewApiUrl);
 		$userList   = json_decode($user);
 		return $userList->data->openid;
 	}
 	
+	public function getUserInfo($openid = ''){
+		$viewApiUrl = $this->apiUrl.'user/info?access_token='.$this->weChatToken.'&openid='.$openid.'&lang=zh_CN';
+		$user		= file_get_contents($viewApiUrl);
+		$user   	= json_decode($user);	
+		$user 		= object_to_array($user);
+		return array_iconv($user , 'utf-8' , 'gbk');	
+	}
 	//----------------------------- 通用方法 --------------------------------------------------
 	
 	/*
